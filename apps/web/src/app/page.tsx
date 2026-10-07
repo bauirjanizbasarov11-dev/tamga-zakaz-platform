@@ -56,6 +56,9 @@ const text = {
     statsTitle1: 'Aylıq buyurtpa',
     statsTitle2: 'Restoran hám kafe',
     statsTitle3: '24/7 taksi',
+    catalog: 'Katalog',
+    cart: 'Savat',
+    orders: 'Buyurtpalar',
   },
   qq: {
     brand: 'Tamga Zakaz',
@@ -71,6 +74,9 @@ const text = {
     statsTitle1: 'Aylıq buyırma',
     statsTitle2: 'Restoran hám kafe',
     statsTitle3: '24/7 taksi',
+    catalog: 'Katalog',
+    cart: 'Savat',
+    orders: 'Buyırmalar',
   },
   ru: {
     brand: 'Tamga Zakaz',
@@ -86,6 +92,9 @@ const text = {
     statsTitle1: 'Заказов в месяц',
     statsTitle2: 'Ресторанов и кафе',
     statsTitle3: 'Такси 24/7',
+    catalog: 'Каталог',
+    cart: 'Корзина',
+    orders: 'Заказы',
   },
 };
 
@@ -149,6 +158,12 @@ export default function HomePage() {
             <button type="button">{service.action[lang]}</button>
           </article>
         ))}
+      </section>
+
+      <section className="quick-links">
+        <a href="/catalog" className="quick-panel">{current.catalog}</a>
+        <a href="/cart" className="quick-panel">{current.cart}</a>
+        <a href="/orders" className="quick-panel">{current.orders}</a>
       </section>
 
       <section id="about" className="stats">

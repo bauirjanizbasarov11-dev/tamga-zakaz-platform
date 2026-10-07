@@ -17,31 +17,32 @@ const categories = [
 ];
 
 const restaurants = [
-  { id: 'r1', name: 'Nuras Bistro', rating: 4.8, deliveryTime: '25-35 min', city: 'Nukus' },
-  { id: 'r2', name: 'Aqtau Grill', rating: 4.7, deliveryTime: '30-40 min', city: 'Aqtau' },
-  { id: 'r3', name: 'Baqtiyar Cafe', rating: 4.9, deliveryTime: '20-30 min', city: 'Almaty' },
+  { id: 'r1', name: 'Nuras Bistro', rating: 4.8, deliveryTime: '25-35 min', city: 'Nukus', price: 1800 },
+  { id: 'r2', name: 'Aqtau Grill', rating: 4.7, deliveryTime: '30-40 min', city: 'Aqtau', price: 2200 },
+  { id: 'r3', name: 'Baqtiyar Cafe', rating: 4.9, deliveryTime: '20-30 min', city: 'Almaty', price: 2000 },
 ];
 
 const cafes = [
-  { id: 'c1', name: 'Coffee Spot', rating: 4.6, city: 'Nukus' },
-  { id: 'c2', name: 'Tea House', rating: 4.8, city: 'Almaty' },
+  { id: 'c1', name: 'Coffee Spot', rating: 4.6, city: 'Nukus', price: 900 },
+  { id: 'c2', name: 'Tea House', rating: 4.8, city: 'Almaty', price: 800 },
 ];
 
 const taxiServices = [
-  { id: 't1', name: 'City Ride', eta: '5 min', city: 'Nukus' },
-  { id: 't2', name: 'Airport Transfer', eta: '15 min', city: 'Almaty' },
+  { id: 't1', name: 'City Ride', eta: '5 min', city: 'Nukus', price: 900 },
+  { id: 't2', name: 'Airport Transfer', eta: '15 min', city: 'Almaty', price: 1800 },
 ];
 
 const sampleOrders = [
   { id: 'o1', customer: 'Aisha', service: 'restaurant', total: 3200, status: 'preparing' },
   { id: 'o2', customer: 'Nurlan', service: 'taxi', total: 1200, status: 'onway' },
+  { id: 'o3', customer: 'Dana', service: 'cafe', total: 1400, status: 'completed' },
 ];
 
 app.get('/api/health', (req, res) => {
   res.json({
     ok: true,
     service: 'tamga-zakaz-api',
-    version: '0.2.0',
+    version: '0.3.0',
     languages: ['kz', 'qq', 'ru'],
     timestamp: new Date().toISOString(),
   });
@@ -65,6 +66,21 @@ app.get('/api/taxi', (req, res) => {
 
 app.get('/api/orders', (req, res) => {
   res.json({ items: sampleOrders });
+});
+
+app.post('/api/orders', (req, res) => {
+  const { customer, service, total, status = 'preparing' } = req.body || {};
+
+  const newOrder = {
+    id: `o${Date.now()}`,
+    customer: customer || 'Guest',
+    service: service || 'restaurant',
+    total: Number(total || 0),
+    status,
+  };
+
+  sampleOrders.unshift(newOrder);
+  res.status(201).json({ item: newOrder });
 });
 
 app.listen(port, () => {

@@ -52,7 +52,7 @@ export default function App() {
             <Pressable
               key={service.id}
               onPress={() => setSelected(service.id)}
-              style={[styles.serviceTab, active && { backgroundColor: service.accent } ]}
+              style={[styles.serviceTab, active && { backgroundColor: service.accent }]}
             >
               <Text style={[styles.serviceTabText, active && styles.serviceTabTextActive]}>{service.title}</Text>
             </Pressable>
@@ -73,6 +73,12 @@ export default function App() {
           <Text style={styles.cardTitle}>Taxi</Text>
           <Text style={styles.cardText}>Quick rides across the city</Text>
         </View>
+      </View>
+
+      <View style={styles.footerBar}>
+        <Text style={styles.footerText}>Profile</Text>
+        <Text style={styles.footerText}>Orders</Text>
+        <Text style={styles.footerText}>Home</Text>
       </View>
     </SafeAreaView>
   );
@@ -214,5 +220,17 @@ const styles = StyleSheet.create({
   cardText: {
     color: '#a7bbdc',
     fontSize: 14,
+  },
+  footerBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 14,
+    marginTop: 20,
+    borderTopWidth: 1,
+    borderTopColor: '#1f2d42',
+  },
+  footerText: {
+    color: '#dfeafd',
+    fontWeight: '600',
   },
 });

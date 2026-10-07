@@ -15,6 +15,7 @@ export interface RestaurantItem {
   rating: number;
   deliveryTime: string;
   city: string;
+  price: number;
 }
 
 export interface CafeItem {
@@ -22,6 +23,7 @@ export interface CafeItem {
   name: string;
   rating: number;
   city: string;
+  price: number;
 }
 
 export interface TaxiItem {
@@ -29,6 +31,7 @@ export interface TaxiItem {
   name: string;
   eta: string;
   city: string;
+  price: number;
 }
 
 export interface OrderItem {
