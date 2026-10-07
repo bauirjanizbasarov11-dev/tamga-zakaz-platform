@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Pressable } from 'react-native';
 
+const services = [
+  { id: 'restaurant', title: 'Restaurants', accent: '#3ec9ff' },
+  { id: 'cafe', title: 'Cafes', accent: '#ffd166' },
+  { id: 'taxi', title: 'Taxi', accent: '#7bdff6' },
+];
+
+const languages = ['Қазақша', 'Qaraqalpaqsha', 'Русский'];
+
 export default function App() {
+  const [selected, setSelected] = useState('restaurant');
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
@@ -18,6 +28,14 @@ export default function App() {
         <Text style={styles.subtitle}>Қазақша • Qaraqalpaqsha • Русский</Text>
       </View>
 
+      <View style={styles.langRow}>
+        {languages.map((item) => (
+          <Pressable key={item} style={styles.langChip}>
+            <Text style={styles.langText}>{item}</Text>
+          </Pressable>
+        ))}
+      </View>
+
       <View style={styles.row}>
         <Pressable style={styles.primaryButton}>
           <Text style={styles.primaryText}>Order</Text>
@@ -25,6 +43,21 @@ export default function App() {
         <Pressable style={styles.secondaryButton}>
           <Text style={styles.secondaryText}>Ride</Text>
         </Pressable>
+      </View>
+
+      <View style={styles.serviceRow}>
+        {services.map((service) => {
+          const active = selected === service.id;
+          return (
+            <Pressable
+              key={service.id}
+              onPress={() => setSelected(service.id)}
+              style={[styles.serviceTab, active && { backgroundColor: service.accent } ]}
+            >
+              <Text style={[styles.serviceTabText, active && styles.serviceTabTextActive]}>{service.title}</Text>
+            </Pressable>
+          );
+        })}
       </View>
 
       <View style={styles.cardList}>
@@ -96,6 +129,24 @@ const styles = StyleSheet.create({
     color: '#dfeafd',
     fontSize: 16,
   },
+  langRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginBottom: 18,
+  },
+  langChip: {
+    backgroundColor: '#121f31',
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: '#1f2d42',
+  },
+  langText: {
+    color: '#dfeafd',
+    fontSize: 12,
+  },
   row: {
     flexDirection: 'row',
     gap: 12,
@@ -122,6 +173,27 @@ const styles = StyleSheet.create({
   secondaryText: {
     color: '#f4f7fb',
     fontWeight: '700',
+  },
+  serviceRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 18,
+  },
+  serviceTab: {
+    flex: 1,
+    backgroundColor: '#121f31',
+    borderRadius: 12,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#203149',
+  },
+  serviceTabText: {
+    color: '#dfeafd',
+    fontWeight: '700',
+  },
+  serviceTabTextActive: {
+    color: '#06101a',
   },
   cardList: {
     gap: 14,

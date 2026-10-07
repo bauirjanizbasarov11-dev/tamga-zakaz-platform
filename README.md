@@ -6,7 +6,7 @@ Tamga Zakaz is a multilingual delivery platform for restaurants, cafés, and tax
 - Restaurant ordering and delivery
 - Café and food ordering
 - Taxi booking and rides
-- Bilingual and multilingual experience in Kazakh, Karakalpak, and Russian
+- Multilingual experience in Kazakh, Karakalpak, and Russian
 - Shared API and data layer for web and mobile apps
 
 ## Tech stack

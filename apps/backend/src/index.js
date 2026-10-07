@@ -32,6 +32,11 @@ const taxiServices = [
   { id: 't2', name: 'Airport Transfer', eta: '15 min', city: 'Almaty' },
 ];
 
+const sampleOrders = [
+  { id: 'o1', customer: 'Aisha', service: 'restaurant', total: 3200, status: 'preparing' },
+  { id: 'o2', customer: 'Nurlan', service: 'taxi', total: 1200, status: 'onway' },
+];
+
 app.get('/api/health', (req, res) => {
   res.json({
     ok: true,
@@ -56,6 +61,10 @@ app.get('/api/cafes', (req, res) => {
 
 app.get('/api/taxi', (req, res) => {
   res.json({ items: taxiServices });
+});
+
+app.get('/api/orders', (req, res) => {
+  res.json({ items: sampleOrders });
 });
 
 app.listen(port, () => {

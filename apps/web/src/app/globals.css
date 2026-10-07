@@ -125,6 +125,11 @@ button {
   color: #dfeafd;
 }
 
+.lang-pill.active {
+  background: linear-gradient(135deg, rgba(52, 200, 255, 0.2), rgba(94, 142, 255, 0.2));
+  border-color: rgba(123, 223, 246, 0.5);
+}
+
 .services {
   max-width: 1200px;
   margin: 32px auto 0;

@@ -31,6 +31,14 @@ export interface TaxiItem {
   city: string;
 }
 
+export interface OrderItem {
+  id: string;
+  customer: string;
+  service: 'restaurant' | 'cafe' | 'taxi';
+  total: number;
+  status: 'preparing' | 'onway' | 'completed';
+}
+
 export const defaultCategories: ServiceCategory[] = [
   { id: 'restaurant', name: 'Restaurant', type: 'restaurant', available: true },
   { id: 'cafe', name: 'Cafe', type: 'cafe', available: true },
