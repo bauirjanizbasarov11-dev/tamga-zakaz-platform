@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "Tamga Zakaz",
+    "slug": "tamga-zakaz",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"],
+    "splash": {
+      "backgroundColor": "#0d1117",
+      "resizeMode": "contain"
+    }
+  }
+}
