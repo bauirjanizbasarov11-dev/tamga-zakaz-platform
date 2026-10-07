@@ -1,69 +1,70 @@
 # Tamga Zakaz Platform
 
-A multilingual delivery platform for restaurants, cafes, and taxi services with a shared web, mobile, and API foundation.
+Tamga Zakaz - multilingual delivery platform for restaurants, cafes and taxi services.
 
 ## Features
-- Multi-language support: Kazakh, Karakalpak, Russian
-- Restaurant and cafe ordering flows
-- Taxi booking integration
-- Shared backend API for web and mobile clients
-- Modular monorepo structure for fast scaling
+- Restaurant ordering and delivery
+- Cafe / quick-service ordering
+- Taxi booking and ride requests
+- Multilingual interface: Kazakh, Karakalpak, Russian
+- API for web and mobile clients
+- Shared service data model across apps
 
-## Tech stack
-- Web: Next.js
-- Mobile: Expo / React Native
-- API: Express.js
-- Shared package: TypeScript utilities and constants
-
-## Repository structure
+## Project structure
 ```text
 apps/
   web/       # Next.js frontend
-  backend/   # Express API
-  mobile/    # Expo app
+  backend/   # Express.js API
+  mobile/    # Expo/React Native app
 packages/
-  shared/    # Shared types and language config
+  shared/    # Shared types and constants
 ```
 
 ## Quick start
 
-### 1) Install dependencies
+### Install dependencies
 ```bash
 npm install
 ```
 
-### 2) Run the API
+### Start the API
 ```bash
 npm run dev:api
 ```
 
-### 3) Run the web app
+### Start the web app
 ```bash
 npm run dev:web
 ```
 
-### 4) Run the mobile app
+### Start the mobile app
 ```bash
 npm run dev:mobile
 ```
 
-## Environment
-Create `.env` files as needed for API keys or deployment settings.
-
-## Default routes
-- Web: http://localhost:3000
+## Default endpoints
+- Web app: http://localhost:3000
 - API: http://localhost:4000
-- Mobile: Expo dev client / simulator
+- Health check: http://localhost:4000/api/health
+
+## Default languages
+- Kazakh
+- Karakalpak
+- Russian
+
+## Tech stack
+- Next.js
+- React Native / Expo
+- Express.js
+- TypeScript
 
 ## Roadmap
-- Authentication and profile system
+- User auth and login
 - Restaurant and cafe catalog
-- Order tracking and checkout
-- Taxi service booking and driver assignment
-- Admin dashboard
+- Cart and checkout
+- Ride booking flow
+- Driver and courier dashboard
+- Admin panel
 - Payment integration
-- Push notifications
-- Deployment pipelines
-
-## License
-MIT
+- Notifications
+- Deployment automation

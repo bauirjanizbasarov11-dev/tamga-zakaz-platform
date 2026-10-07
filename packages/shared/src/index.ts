@@ -9,6 +9,28 @@ export interface ServiceCategory {
   available: boolean;
 }
 
+export interface RestaurantItem {
+  id: string;
+  name: string;
+  rating: number;
+  deliveryTime: string;
+  city: string;
+}
+
+export interface CafeItem {
+  id: string;
+  name: string;
+  rating: number;
+  city: string;
+}
+
+export interface TaxiItem {
+  id: string;
+  name: string;
+  eta: string;
+  city: string;
+}
+
 export const defaultCategories: ServiceCategory[] = [
   { id: 'restaurant', name: 'Restaurant', type: 'restaurant', available: true },
   { id: 'cafe', name: 'Cafe', type: 'cafe', available: true },
