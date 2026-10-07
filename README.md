@@ -1,70 +1,67 @@
 # Tamga Zakaz Platform
 
-Tamga Zakaz - multilingual delivery platform for restaurants, cafes and taxi services.
+Tamga Zakaz is a multilingual delivery platform for restaurants, cafés, and taxi services.
 
-## Features
+## Overview
 - Restaurant ordering and delivery
-- Cafe / quick-service ordering
-- Taxi booking and ride requests
-- Multilingual interface: Kazakh, Karakalpak, Russian
-- API for web and mobile clients
-- Shared service data model across apps
+- Café and food ordering
+- Taxi booking and rides
+- Bilingual and multilingual experience in Kazakh, Karakalpak, and Russian
+- Shared API and data layer for web and mobile apps
 
-## Project structure
+## Tech stack
+- Web: Next.js
+- Mobile: Expo / React Native
+- API: Express.js
+- Shared types: TypeScript package
+
+## Repository structure
 ```text
 apps/
-  web/       # Next.js frontend
-  backend/   # Express.js API
-  mobile/    # Expo/React Native app
+  web/       # Next.js client
+  backend/   # Express API
+  mobile/    # Expo mobile app
 packages/
-  shared/    # Shared types and constants
+  shared/    # Reusable TS types and constants
 ```
 
-## Quick start
+## Getting started
 
 ### Install dependencies
 ```bash
 npm install
 ```
 
-### Start the API
+### Run API
 ```bash
 npm run dev:api
 ```
 
-### Start the web app
+### Run web
 ```bash
 npm run dev:web
 ```
 
-### Start the mobile app
+### Run mobile
 ```bash
 npm run dev:mobile
 ```
 
-## Default endpoints
-- Web app: http://localhost:3000
+## Default URLs
+- Web: http://localhost:3000
 - API: http://localhost:4000
 - Health check: http://localhost:4000/api/health
 
-## Default languages
+## Supported languages
 - Kazakh
 - Karakalpak
 - Russian
 
-## Tech stack
-- Next.js
-- React Native / Expo
-- Express.js
-- TypeScript
-
 ## Roadmap
-- User auth and login
+- Auth and user profiles
 - Restaurant and cafe catalog
-- Cart and checkout
-- Ride booking flow
-- Driver and courier dashboard
+- Menu and cart flows
+- Taxi booking flow
+- Driver dashboard
 - Admin panel
-- Payment integration
-- Notifications
-- Deployment automation
+- Payments and notifications
